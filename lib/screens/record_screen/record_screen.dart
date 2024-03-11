@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:untitled/screens/record_screen/my_record_tab.dart';
 import 'package:untitled/screens/record_screen/ranking_tab.dart';
 
+import '../../config/size_config.dart';
+
 class RecordScreen extends StatefulWidget {
   const RecordScreen({Key? key}) : super(key: key);
 
@@ -15,10 +17,17 @@ class _RecordScreenState extends State<RecordScreen>
 
   final List<Widget> _tabs = [
     const Tab(
-      child: Text("내 기록", style: TextStyle(fontSize: 15)),
+      child: Text(
+          "내 기록",
+          style: TextStyle(
+              fontSize: 15
+          )
+      ),
     ),
     const Tab(
-      child: Text("랭킹", style: TextStyle(fontSize: 15)),
+      child: Text(
+          "랭킹",
+          style: TextStyle(fontSize: 15)),
     ),
   ];
 
@@ -43,16 +52,18 @@ class _RecordScreenState extends State<RecordScreen>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.only(left: 20, top: 10),
+              padding: EdgeInsets.only(
+                  left: SizeConfig.safeBlockHorizontal * 6,
+                  top: SizeConfig.safeBlockVertical * 1.5
+              ),
+              height: SizeConfig.safeBlockVertical * 8,
               child: Text(
                 '기록',
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: SizeConfig.safeBlockHorizontal * 5.4,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              width: 100,
-              height: 50,
             ),
             TabBar(
               tabs: _tabs,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../config/size_config.dart';
 
 class CompetitionScreen extends StatefulWidget {
   @override
@@ -14,25 +15,25 @@ class _MyAppState extends State<CompetitionScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.only(left: 20, top: 10),
+                padding: EdgeInsets.only(
+                    left: SizeConfig.safeBlockHorizontal * 7,
+                    top: SizeConfig.safeBlockVertical * 3),
                 child: Text(
                   '대회',
                   style: TextStyle(
-                    fontSize: 28,
+                    fontSize: SizeConfig.safeBlockHorizontal * 5.4,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                width: 100,
-                height: 60,
               ),
               Container(
-                height: 600,
+                height: SizeConfig.safeBlockVertical * 70,
                 alignment: Alignment.center,
                 child: Text(
                   "대회 기간에 사용하실 수 있습니다.",
                   style: TextStyle(
                     color: Color(0xff9a9a9a),
-                    fontSize: 20
+                    fontSize: SizeConfig.safeBlockHorizontal * 4
                   ),
                 ),
               )

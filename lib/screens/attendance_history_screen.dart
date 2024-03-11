@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pie_chart/pie_chart.dart';
 
+import '../config/size_config.dart';
 
 class AttendanceHistoryScreen extends StatefulWidget {
   @override
@@ -16,34 +17,37 @@ class _MyAppState extends State<AttendanceHistoryScreen> {
   };
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        surfaceTintColor: Colors.white,
+        title: GestureDetector(
+          onTap: () => Navigator.of(context).pop(),
+          child: SvgPicture.asset(
+            'assets/icons/attendance_history_back.svg',
+            color: Color(0xFF000000),
+            height: SizeConfig.safeBlockVertical * 5,
+          ),
+        ),
+        automaticallyImplyLeading: false,
+      ),
       body: SafeArea(
           child: Container(
-              padding: EdgeInsets.all(10),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                        child: InkWell(
-                          child: SvgPicture.asset(
-                            'assets/icons/atd_history_back.svg',
-                            height: 50,
-                          ),
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                        )
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left: 20, top: 40),
+                      padding: EdgeInsets.only(
+                          left: SizeConfig.safeBlockHorizontal * 9,
+                          top: SizeConfig.safeBlockVertical * 5,
+                          bottom: SizeConfig.safeBlockVertical * 6
+                      ),
                       child: Text(
                         "출석 종합",
                         style: TextStyle(
-                            fontSize: 14,
+                            fontSize: SizeConfig.safeBlockHorizontal * 3.5,
                             color: Color(0xff9a9a9a)
                         ),
                       ),
-                      width: 150,
-                      height: 80,
                     ),
                     Container(
                       child: Center(
@@ -55,7 +59,7 @@ class _MyAppState extends State<AttendanceHistoryScreen> {
                             Color(0xffffe200),
                             Color(0xffea7373)
                           ],
-                          chartRadius: MediaQuery.of(context).size.width / 1.2,
+                          chartRadius: MediaQuery.of(context).size.width * 0.5,
                           legendOptions: LegendOptions(
                             legendPosition: LegendPosition.bottom,
                             showLegendsInRow: true,

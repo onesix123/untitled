@@ -21,7 +21,7 @@ class AttendanceApprovalScreen extends StatelessWidget {
           child: SvgPicture.asset(
             'assets/icons/attendance_approve.svg',
             color: Color(0xFF000000),
-            width: SizeConfig.safeBlockHorizontal * 25.28,
+            height: SizeConfig.safeBlockVertical * 5,
           ),
         ),
         automaticallyImplyLeading: false,
